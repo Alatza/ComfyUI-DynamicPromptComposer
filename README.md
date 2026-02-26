@@ -10,7 +10,7 @@ A ComfyUI custom node for building varied prompts across batch image or video ge
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/ericgitangu/ComfyUI-DynamicPromptComposer
+git clone https://github.com/Alatza/ComfyUI-DynamicPromptComposer
 ```
 
 Restart ComfyUI. The node will appear under the **prompt** category.
