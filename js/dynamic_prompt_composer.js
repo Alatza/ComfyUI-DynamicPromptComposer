@@ -118,7 +118,7 @@ app.registerExtension({
                 // from a saved workflow, onConfigure fires synchronously before
                 // this setTimeout and clears the flag, so we skip the doubling.
                 if (self._dpcIsNew) {
-                    self.size[0] *= 2;
+                    self.size[0] = Math.max(self.size[0], 400);
                     app.graph?.setDirtyCanvas(true);
                 }
             }, 0);
