@@ -1,7 +1,7 @@
 import { app } from "../../scripts/app.js";
 
 const NODE_NAME = "DynamicPromptComposer";
-const MAX_SECTIONS = 10;
+const MAX_SECTIONS = 20;
 
 // ─── widget visibility ───────────────────────────────────────────────────────
 

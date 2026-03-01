@@ -8,7 +8,7 @@ except ImportError:
     _HAS_SERVER = False
 
 SEPARATOR = " "
-MAX_SECTIONS = 10
+MAX_SECTIONS = 20
 
 # Keyed by (node_unique_id, section_index); cleared when a new batch starts.
 _INCREMENT_COUNTERS: dict = {}
