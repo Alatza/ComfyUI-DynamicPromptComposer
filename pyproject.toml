@@ -2,8 +2,13 @@
 name = "ComfyUI-DynamicPromptComposer"
 version = "1.0.0"
 description = "ComfyUI custom node for building varied prompts across batch generations using sections and per-section pick modes."
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
+dependencies = []
 
 [project.urls]
 Repository = "https://github.com/Alatza/ComfyUI-DynamicPromptComposer"
+
+[tool.comfy]
+PublisherId = "alatza"
+DisplayName = "Dynamic Prompt Composer"
