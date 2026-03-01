@@ -6,26 +6,15 @@ const MAX_SECTIONS = 10;
 // ─── widget visibility ───────────────────────────────────────────────────────
 
 function hideWidget(w) {
-    if (w._hidden) return;
-    w._origComputeSize = w.computeSize;
-    w.computeSize = () => [0, -4];
-    // Multiline text inputs are real DOM elements; computeSize alone won't hide them.
-    if (w.element) {
-        w._origDisplay = w.element.style.display;
-        w.element.style.display = "none";
-    }
-    w._hidden = true;
+    if (w.hidden) return;
+    w.hidden = true;
+    w.options.hidden = true;
 }
 
 function showWidget(w) {
-    if (!w._hidden) return;
-    w.computeSize = w._origComputeSize;
-    delete w._origComputeSize;
-    if (w.element) {
-        w.element.style.display = w._origDisplay ?? "";
-        delete w._origDisplay;
-    }
-    w._hidden = false;
+    if (!w.hidden) return;
+    w.hidden = false;
+    w.options.hidden = false;
 }
 
 function getSectionWidgets(node, i) {
