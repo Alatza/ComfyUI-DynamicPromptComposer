@@ -42,10 +42,12 @@ Each section has its own mode:
 
 | Mode | Behavior |
 |------|----------|
-| `random` | Picks one element at random using `seed`. Same seed → same pick. |
-| `random (unseeded)` | Picks at random, ignoring `seed`. Non-reproducible every run. |
+| `random` | Picks one element at true random. Non-reproducible every run — the `seed` input is ignored. |
+| `random (seed)` | Picks one element at random using `seed` as the RNG seed. Same seed always produces the same pick. |
 | `increment` | Cycles through elements in order across runs. Resets at the start of each new batch. |
 | `fixed` | Always picks the element at the **start index**. |
+
+> **`random` vs `random (seed)`** — Use `random` when you want a different result every single run with no way to reproduce it. Use `random (seed)` when you want to explore combinations by changing the seed, but need to be able to go back to a specific result — same seed always yields the same prompt.
 
 ### Seed
 

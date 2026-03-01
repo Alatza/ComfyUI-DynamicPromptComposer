@@ -65,7 +65,7 @@ class DynamicPromptComposer:
         optional = {}
         for i in range(MAX_SECTIONS):
             optional[f"section_{i}"] = ("STRING", {"multiline": True, "default": ""})
-            optional[f"section_{i}_mode"] = (["random", "random (unseeded)", "increment", "fixed"], {})
+            optional[f"section_{i}_mode"] = (["random", "random (seed)", "increment", "fixed"], {})
             optional[f"section_{i}_start_index"] = ("INT", {"default": 0, "min": 0, "max": 99})
         return {
             "required": {
@@ -78,7 +78,7 @@ class DynamicPromptComposer:
     @classmethod
     def IS_CHANGED(cls, seed, **kwargs):
         modes = [v for k, v in kwargs.items() if k.endswith("_mode")]
-        if any(m in ("random", "random (unseeded)", "increment") for m in modes):
+        if any(m in ("random", "random (seed)", "increment") for m in modes):
             return float("NaN")
         return seed
 
@@ -95,9 +95,9 @@ class DynamicPromptComposer:
             if not elements:
                 continue
 
-            if mode == "random":
+            if mode == "random (seed)":
                 chosen = rng.choice(elements)
-            elif mode == "random (unseeded)":
+            elif mode == "random":
                 chosen = random.choice(elements)
             elif mode == "increment":
                 start_index = kwargs.get(f"section_{i}_start_index", 0)
